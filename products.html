@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our collection of premium software products">
+    <title>Products - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h1 class="mb-4">Our Products</h1>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="search-input" class="form-control" placeholder="Search products...">
+                    <button class="btn btn-primary" type="button" id="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-secondary active" data-category="all">All</button>
+                    <button type="button" class="btn btn-outline-secondary" data-category="development">Development</button>
+                    <button type="button" class="btn btn-outline-secondary" data-category="web">Web</button>
+                    <button type="button" class="btn btn-outline-secondary" data-category="education">Education</button>
+                    <button type="button" class="btn btn-outline-secondary" data-category="security">Security</button>
+                    <button type="button" class="btn btn-outline-secondary" data-category="ai">AI</button>
+                    <button type="button" class="btn btn-outline-secondary" data-category="gaming">Gaming</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="products-grid">
+            <!-- Products will be loaded dynamically -->
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/products.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
