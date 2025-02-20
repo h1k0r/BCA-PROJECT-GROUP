@@ -4,7 +4,6 @@ const products = [
         id: 1,
         name: "Code Editor Pro",
         category: "development",
-        price: 49.99,
         description: "Advanced code editor with syntax highlighting and intelligent code completion.",
         features: [
             "Multi-language support",
@@ -18,7 +17,6 @@ const products = [
         id: 2,
         name: "E-commerce Platform Builder",
         category: "web",
-        price: 79.99,
         description: "Complete e-commerce solution with shopping cart, payment integration, and inventory management.",
         features: [
             "Multi-vendor support",
@@ -32,7 +30,6 @@ const products = [
         id: 3,
         name: "Learning Management System",
         category: "education",
-        price: 89.99,
         description: "Comprehensive LMS for creating and managing online courses and educational content.",
         features: [
             "Course creation tools",
@@ -46,7 +43,6 @@ const products = [
         id: 4,
         name: "Network Security Suite",
         category: "security",
-        price: 99.99,
         description: "Advanced network security tools for vulnerability assessment and penetration testing.",
         features: [
             "Network scanning",
@@ -60,7 +56,6 @@ const products = [
         id: 5,
         name: "AI Development Kit",
         category: "ai",
-        price: 149.99,
         description: "Comprehensive AI and machine learning development toolkit with pre-trained models.",
         features: [
             "Image recognition",
@@ -74,7 +69,6 @@ const products = [
         id: 6,
         name: "Game Development Studio",
         category: "gaming",
-        price: 129.99,
         description: "Complete game development environment for 2D and 3D games.",
         features: [
             "2D/3D engine support",
@@ -88,7 +82,6 @@ const products = [
         id: 7,
         name: "Security Scanner",
         category: "security",
-        price: 39.99,
         description: "Comprehensive security scanning tool for web applications.",
         features: [
             "Vulnerability detection",
@@ -102,7 +95,6 @@ const products = [
         id: 8,
         name: "File Manager Ultra",
         category: "utility",
-        price: 29.99,
         description: "Advanced file management system with powerful organization features.",
         features: [
             "Batch processing",
@@ -116,7 +108,6 @@ const products = [
         id: 9,
         name: "Database Administrator Tool",
         category: "development",
-        price: 59.99,
         description: "Professional database management and administration software.",
         features: [
             "Multiple database support",
@@ -130,7 +121,6 @@ const products = [
         id: 10,
         name: "Network Monitor Pro",
         category: "security",
-        price: 44.99,
         description: "Advanced network monitoring and analysis tool.",
         features: [
             "Real-time traffic analysis",
@@ -144,7 +134,6 @@ const products = [
         id: 11,
         name: "Online Course Platform",
         category: "education",
-        price: 129.99,
         description: "Build your own online learning platform like Udemy with course creation, student management, and payment processing.",
         features: [
             "Course authoring tools",
@@ -158,7 +147,6 @@ const products = [
         id: 12,
         name: "Hospital Management System",
         category: "web",
-        price: 199.99,
         description: "Comprehensive healthcare management solution for hospitals and clinics.",
         features: [
             "Patient records management",
@@ -172,7 +160,6 @@ const products = [
         id: 13,
         name: "Real Estate Platform",
         category: "web",
-        price: 149.99,
         description: "Feature-rich real estate listing and management platform for properties.",
         features: [
             "Property listings",
@@ -186,7 +173,6 @@ const products = [
         id: 14,
         name: "Social Media Analytics",
         category: "ai",
-        price: 89.99,
         description: "Advanced analytics and sentiment analysis tool for social media platforms.",
         features: [
             "Sentiment analysis",
@@ -200,7 +186,6 @@ const products = [
         id: 15,
         name: "Virtual Science Lab",
         category: "education",
-        price: 79.99,
         description: "Interactive virtual laboratory for science experiments and simulations.",
         features: [
             "3D experiments",
@@ -214,7 +199,6 @@ const products = [
         id: 16,
         name: "Fitness Tracking Platform",
         category: "web",
-        price: 69.99,
         description: "Complete fitness and workout tracking system with progress monitoring.",
         features: [
             "Workout plans",
@@ -228,7 +212,6 @@ const products = [
         id: 17,
         name: "Smart Home Controller",
         category: "development",
-        price: 159.99,
         description: "IoT-based smart home automation and control system.",
         features: [
             "Device management",
@@ -242,7 +225,6 @@ const products = [
         id: 18,
         name: "Job Portal System",
         category: "web",
-        price: 139.99,
         description: "Complete job listing and recruitment management platform.",
         features: [
             "Job postings",
@@ -256,7 +238,6 @@ const products = [
         id: 19,
         name: "Language Learning Suite",
         category: "education",
-        price: 99.99,
         description: "Comprehensive language learning platform with interactive lessons.",
         features: [
             "Multiple languages",
@@ -270,7 +251,6 @@ const products = [
         id: 20,
         name: "Video Streaming Platform",
         category: "web",
-        price: 199.99,
         description: "Build your own video streaming service like Netflix.",
         features: [
             "Content management",
@@ -284,7 +264,6 @@ const products = [
         id: 21,
         name: "Inventory Management System",
         category: "web",
-        price: 149.99,
         description: "Complete inventory and stock management solution for businesses.",
         features: [
             "Stock tracking",
@@ -298,7 +277,6 @@ const products = [
         id: 22,
         name: "Virtual Reality Game Engine",
         category: "gaming",
-        price: 199.99,
         description: "Advanced VR game development engine with ready-to-use components.",
         features: [
             "VR physics engine",
@@ -314,13 +292,17 @@ const products = [
 function createProductCard(product) {
     return `
         <div class="col-md-4 mb-4">
-            <div class="card product-card h-100" onclick="window.location.href='product-detail.html?id=${product.id}'">
+            <div class="card product-card h-100">
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <span class="badge bg-primary">${product.category}</span>
-                        <h6 class="mb-0">$${product.price}</h6>
+                        <div class="btn-group">
+                            <a href="product-detail.html?id=${product.id}" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -342,7 +324,7 @@ function displayProducts(productsToShow = products) {
     }
 }
 
-// Function to display product detail
+// Update product detail display
 function displayProductDetail(productId) {
     const product = products.find(p => p.id === parseInt(productId));
     if (!product) return;
@@ -360,25 +342,49 @@ function displayProductDetail(productId) {
                             <li class="list-group-item">${feature}</li>
                         `).join('')}
                     </ul>
-                    <div class="d-flex align-items-center mb-4">
-                        <h2 class="mb-0 me-3">$${product.price}</h2>
-                        <span class="badge bg-primary">${product.category}</span>
-                    </div>
-                    <div class="alert alert-success">
-                        <i class="fab fa-whatsapp me-2"></i>
-                        Join our WhatsApp community to get instant access to this product and more!
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="mb-3">Download Options</h4>
+                            <div class="d-grid gap-3">
+                                <a href="${product.driveLink}" class="btn btn-success btn-lg" target="_blank">
+                                    <i class="fab fa-whatsapp me-2"></i>Join WhatsApp Community
+                                </a>
+                                <a href="https://drive.google.com/your-product-link" class="btn btn-primary btn-lg" target="_blank">
+                                    <i class="fas fa-download me-2"></i>Direct Download (Google Drive)
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-body text-center">
-                            <i class="fas fa-laptop-code fa-5x mb-4"></i>
-                            <h4>System Requirements</h4>
-                            <ul class="list-unstyled">
-                                <li>Windows 10/11 or macOS</li>
-                                <li>4GB RAM minimum</li>
-                                <li>500MB disk space</li>
-                                <li>Internet connection</li>
+                        <div class="card-body">
+                            <h4 class="text-center mb-4">Package Contents</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-code me-2"></i>Complete Source Code
+                                    <a href="https://drive.google.com/your-source-code-link" class="btn btn-sm btn-outline-primary float-end">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-file-alt me-2"></i>Documentation & Report
+                                    <a href="https://drive.google.com/your-docs-link" class="btn btn-sm btn-outline-primary float-end">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-book me-2"></i>User Guide
+                                    <a href="https://drive.google.com/your-guide-link" class="btn btn-sm btn-outline-primary float-end">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-tools me-2"></i>Installation Instructions
+                                    <a href="https://drive.google.com/your-install-guide-link" class="btn btn-sm btn-outline-primary float-end">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
