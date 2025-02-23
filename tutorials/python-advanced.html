@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming: From Basics to Advanced - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="../static/css/learning.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../learning.html">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="tutorial-nav">
+                    <div class="list-group">
+                        <a href="#intro" class="list-group-item list-group-item-action">Introduction to Python</a>
+                        <a href="#basics" class="list-group-item list-group-item-action">Python Basics</a>
+                        <a href="#control-flow" class="list-group-item list-group-item-action">Control Flow</a>
+                        <a href="#functions" class="list-group-item list-group-item-action">Functions & Modules</a>
+                        <a href="#data-structures" class="list-group-item list-group-item-action">Data Structures</a>
+                        <a href="#oop" class="list-group-item list-group-item-action">Object-Oriented Programming</a>
+                        <a href="#exceptions" class="list-group-item list-group-item-action">Exception Handling</a>
+                        <a href="#file-io" class="list-group-item list-group-item-action">File I/O</a>
+                        <a href="#advanced" class="list-group-item list-group-item-action">Advanced Concepts</a>
+                        <a href="#best-practices" class="list-group-item list-group-item-action">Best Practices</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="tutorial-content">
+                    <h1 id="intro">Python Programming: From Basics to Advanced</h1>
+                    <p>Python is a versatile, high-level programming language known for its simplicity and readability. This comprehensive guide will take you from basic concepts to advanced Python programming.</p>
+
+                    <h2 id="basics">Python Basics</h2>
+                    <p>Let's start with the fundamental concepts of Python programming:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Variables and Data Types
+name = "John"  # String
+age = 25      # Integer
+height = 1.75  # Float
+is_student = True  # Boolean
+
+# Basic Operations
+print(f"Name: {name}, Age: {age}")  # String formatting
+result = 10 + 5  # Addition
+product = 4 * 3  # Multiplication
+
+# String Operations
+greeting = "Hello"
+name = "World"
+full_greeting = greeting + " " + name  # String concatenation
+print(full_greeting.upper())  # String methods
+
+# Type Conversion
+age_str = str(age)  # Convert to string
+height_int = int(height)  # Convert to integer
+
+# Input and Output
+user_input = input("Enter your name: ")
+print(f"Hello, {user_input}!")
+                        </code></pre>
+                    </div>
+
+                    <h2 id="control-flow">Control Flow</h2>
+                    <p>Control flow structures help you control the execution of your code:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# If-Else Statements
+age = 18
+if age >= 18:
+    print("You are an adult")
+elif age >= 13:
+    print("You are a teenager")
+else:
+    print("You are a child")
+
+# Loops
+# For Loop
+for i in range(5):
+    print(i)  # Prints 0 to 4
+
+# While Loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# Loop Control
+for i in range(10):
+    if i == 5:
+        continue  # Skip 5
+    if i == 8:
+        break    # Stop at 8
+    print(i)
+
+# Match Statement (Python 3.10+)
+status = "error"
+match status:
+    case "success":
+        print("Operation successful")
+    case "error":
+        print("An error occurred")
+    case _:
+        print("Unknown status")
+                        </code></pre>
+                    </div>
+
+                    <h2 id="functions">Functions & Modules</h2>
+                    <p>Functions help organize code into reusable blocks:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Basic Function
+def greet(name):
+    return f"Hello, {name}!"
+
+# Function with Default Parameters
+def calculate_area(length, width=1):
+    return length * width
+
+# *args and **kwargs
+def print_all(*args, **kwargs):
+    for arg in args:
+        print(arg)
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Lambda Functions
+square = lambda x: x**2
+
+# Decorators
+def timer(func):
+    def wrapper(*args, **kwargs):
+        import time
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"Function took {end-start} seconds")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    import time
+    time.sleep(1)
+    return "Done!"
+
+# Importing Modules
+import math
+from datetime import datetime
+import numpy as np  # Third-party module
+                        </code></pre>
+                    </div>
+
+                    <h2 id="data-structures">Data Structures</h2>
+                    <p>Python provides several built-in data structures:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Lists
+fruits = ["apple", "banana", "orange"]
+fruits.append("grape")  # Add item
+fruits.pop()  # Remove last item
+first_fruit = fruits[0]  # Indexing
+sliced_fruits = fruits[1:3]  # Slicing
+
+# Tuples (Immutable)
+coordinates = (10, 20)
+x, y = coordinates  # Tuple unpacking
+
+# Dictionaries
+person = {
+    "name": "John",
+    "age": 30,
+    "city": "New York"
+}
+person["email"] = "john@example.com"  # Add key-value pair
+
+# Sets
+numbers = {1, 2, 3, 4, 5}
+more_numbers = {4, 5, 6, 7, 8}
+union = numbers | more_numbers
+intersection = numbers & more_numbers
+
+# List Comprehensions
+squares = [x**2 for x in range(10)]
+even_squares = [x**2 for x in range(10) if x % 2 == 0]
+
+# Dictionary Comprehensions
+square_dict = {x: x**2 for x in range(5)}
+                        </code></pre>
+                    </div>
+
+                    <h2 id="oop">Object-Oriented Programming</h2>
+                    <p>Python supports object-oriented programming principles:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Class Definition
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        pass
+
+# Inheritance
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+    
+    def speak(self):
+        return "Woof!"
+
+# Properties and Class Methods
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        if value >= 0:
+            self._radius = value
+    
+    @property
+    def area(self):
+        return 3.14 * self._radius ** 2
+    
+    @classmethod
+    def from_diameter(cls, diameter):
+        return cls(diameter / 2)
+
+# Magic Methods
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+                        </code></pre>
+                    </div>
+
+                    <h2 id="exceptions">Exception Handling</h2>
+                    <p>Handle errors and exceptions gracefully:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Basic Exception Handling
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"An error occurred: {e}")
+else:
+    print("No exceptions occurred!")
+finally:
+    print("This always executes")
+
+# Custom Exceptions
+class CustomError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+# Context Managers
+class FileManager:
+    def __init__(self, filename):
+        self.filename = filename
+    
+    def __enter__(self):
+        self.file = open(self.filename, 'r')
+        return self.file
+    
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.file.close()
+
+# Using context manager
+with FileManager('example.txt') as file:
+    content = file.read()
+                        </code></pre>
+                    </div>
+
+                    <h2 id="file-io">File I/O</h2>
+                    <p>Work with files and input/output operations:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Reading Files
+with open('file.txt', 'r') as file:
+    content = file.read()  # Read entire file
+    lines = file.readlines()  # Read lines into list
+
+# Writing Files
+with open('output.txt', 'w') as file:
+    file.write('Hello, World!\n')
+    file.writelines(['Line 1\n', 'Line 2\n'])
+
+# CSV Files
+import csv
+with open('data.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+# JSON Files
+import json
+data = {'name': 'John', 'age': 30}
+with open('data.json', 'w') as file:
+    json.dump(data, file)
+
+# Binary Files
+with open('image.jpg', 'rb') as file:
+    binary_data = file.read()
+                        </code></pre>
+                    </div>
+
+                    <h2 id="advanced">Advanced Concepts</h2>
+                    <p>Explore advanced Python features and concepts:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Generators
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# Coroutines and Async Programming
+import asyncio
+
+async def fetch_data():
+    print("Starting...")
+    await asyncio.sleep(2)
+    print("Done!")
+    return {"data": "result"}
+
+# Type Hints (Python 3.5+)
+from typing import List, Dict, Optional
+
+def process_items(items: List[str]) -> Dict[str, int]:
+    return {item: len(item) for item in items}
+
+# Metaclasses
+class MetaClass(type):
+    def __new__(cls, name, bases, attrs):
+        # Modify class creation
+        return super().__new__(cls, name, bases, attrs)
+
+# Decorators with Arguments
+def repeat(times):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(times):
+                result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator
+
+@repeat(3)
+def greet(name):
+    print(f"Hello {name}")
+                        </code></pre>
+                    </div>
+
+                    <h2 id="best-practices">Best Practices</h2>
+                    <ul>
+                        <li>Follow PEP 8 style guide for Python code</li>
+                        <li>Write docstrings for functions and classes</li>
+                        <li>Use virtual environments for project isolation</li>
+                        <li>Implement proper error handling</li>
+                        <li>Write unit tests for your code</li>
+                        <li>Use type hints for better code clarity</li>
+                        <li>Keep functions and methods small and focused</li>
+                        <li>Use meaningful variable and function names</li>
+                        <li>Comment your code appropriately</li>
+                        <li>Use list comprehensions judiciously</li>
+                        <li>Profile your code for performance optimization</li>
+                        <li>Practice defensive programming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="../static/js/learning.js"></script>
+</body>
+</html>

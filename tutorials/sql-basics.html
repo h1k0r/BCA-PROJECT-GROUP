@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL and Database Concepts - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="../static/css/learning.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../learning.html">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="tutorial-nav">
+                    <div class="list-group">
+                        <a href="#intro" class="list-group-item list-group-item-action">Introduction</a>
+                        <a href="#basics" class="list-group-item list-group-item-action">SQL Basics</a>
+                        <a href="#queries" class="list-group-item list-group-item-action">Essential Queries</a>
+                        <a href="#joins" class="list-group-item list-group-item-action">Joins & Relations</a>
+                        <a href="#indexes" class="list-group-item list-group-item-action">Indexes & Performance</a>
+                        <a href="#transactions" class="list-group-item list-group-item-action">Transactions & ACID</a>
+                        <a href="#best-practices" class="list-group-item list-group-item-action">Best Practices</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="tutorial-content">
+                    <h1 id="intro">SQL and Database Concepts</h1>
+                    <p>SQL (Structured Query Language) is the standard language for managing and manipulating relational databases.</p>
+
+                    <h2 id="basics">SQL Basics</h2>
+                    <p>Core SQL concepts and syntax:</p>
+                    <div class="code-example">
+                        <pre><code class="language-sql">
+-- Creating a Table
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Inserting Data
+INSERT INTO users (username, email) 
+VALUES ('john_doe', 'john@example.com');
+
+-- Basic SELECT Queries
+SELECT * FROM users;
+SELECT username, email FROM users;
+SELECT * FROM users WHERE id = 1;
+
+-- Updating Records
+UPDATE users 
+SET email = 'new_email@example.com'
+WHERE username = 'john_doe';
+
+-- Deleting Records
+DELETE FROM users WHERE id = 1;
+
+-- Using Conditions
+SELECT * FROM users 
+WHERE created_at >= '2024-01-01'
+AND username LIKE 'john%';
+
+-- Ordering Results
+SELECT * FROM users
+ORDER BY created_at DESC
+LIMIT 10;
+                        </code></pre>
+                    </div>
+
+                    <h2 id="queries">Essential Queries</h2>
+                    <p>Common SQL queries and operations:</p>
+                    <div class="code-example">
+                        <pre><code class="language-sql">
+-- Aggregation Functions
+SELECT 
+    COUNT(*) as total_users,
+    MAX(created_at) as latest_signup,
+    MIN(created_at) as first_signup
+FROM users;
+
+-- GROUP BY with HAVING
+SELECT 
+    DATE(created_at) as signup_date,
+    COUNT(*) as signups
+FROM users
+GROUP BY DATE(created_at)
+HAVING COUNT(*) > 5
+ORDER BY signup_date;
+
+-- Subqueries
+SELECT *
+FROM users
+WHERE id IN (
+    SELECT user_id
+    FROM orders
+    WHERE total > 100
+);
+
+-- Common Table Expressions (CTE)
+WITH active_users AS (
+    SELECT * FROM users
+    WHERE last_login >= NOW() - INTERVAL '30 days'
+)
+SELECT * FROM active_users
+WHERE subscription_status = 'premium';
+
+-- Window Functions
+SELECT 
+    username,
+    created_at,
+    ROW_NUMBER() OVER (
+        PARTITION BY DATE(created_at)
+        ORDER BY created_at
+    ) as daily_signup_number
+FROM users;
+                        </code></pre>
+                    </div>
+
+                    <h2 id="joins">Joins & Relations</h2>
+                    <p>Working with multiple tables and relationships:</p>
+                    <div class="code-example">
+                        <pre><code class="language-sql">
+-- Table Structure
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    total DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- INNER JOIN
+SELECT 
+    u.username,
+    o.total,
+    o.created_at
+FROM users u
+INNER JOIN orders o ON u.id = o.user_id;
+
+-- LEFT JOIN
+SELECT 
+    u.username,
+    COUNT(o.id) as total_orders
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+GROUP BY u.username;
+
+-- Multiple Joins
+SELECT 
+    u.username,
+    o.id as order_id,
+    p.name as product_name
+FROM users u
+JOIN orders o ON u.id = o.user_id
+JOIN order_items oi ON o.id = oi.order_id
+JOIN products p ON oi.product_id = p.id;
+
+-- Self Join
+SELECT 
+    e1.name as employee,
+    e2.name as manager
+FROM employees e1
+LEFT JOIN employees e2 ON e1.manager_id = e2.id;
+                        </code></pre>
+                    </div>
+
+                    <h2 id="indexes">Indexes & Performance</h2>
+                    <p>Optimizing database performance:</p>
+                    <div class="code-example">
+                        <pre><code class="language-sql">
+-- Creating Indexes
+CREATE INDEX idx_users_email ON users(email);
+CREATE UNIQUE INDEX idx_users_username ON users(username);
+
+-- Composite Index
+CREATE INDEX idx_orders_user_date ON orders(user_id, created_at);
+
+-- Partial Index
+CREATE INDEX idx_premium_users ON users(id)
+WHERE subscription_status = 'premium';
+
+-- Analyzing Queries
+EXPLAIN ANALYZE
+SELECT * FROM users
+WHERE email LIKE '%@gmail.com';
+
+-- Index Types
+CREATE INDEX idx_users_username_gin ON users 
+USING gin(username gin_trgm_ops);
+
+-- Maintaining Indexes
+REINDEX TABLE users;
+ANALYZE users;
+                        </code></pre>
+                    </div>
+
+                    <h2 id="transactions">Transactions & ACID</h2>
+                    <p>Managing data integrity and transactions:</p>
+                    <div class="code-example">
+                        <pre><code class="language-sql">
+-- Basic Transaction
+BEGIN;
+    INSERT INTO orders (user_id, total) 
+    VALUES (1, 100.00);
+    
+    UPDATE users 
+    SET total_spent = total_spent + 100.00 
+    WHERE id = 1;
+COMMIT;
+
+-- Transaction with Rollback
+BEGIN;
+    UPDATE accounts 
+    SET balance = balance - 100 
+    WHERE id = 1;
+    
+    UPDATE accounts 
+    SET balance = balance + 100 
+    WHERE id = 2;
+    
+    -- Check if both accounts exist
+    IF NOT FOUND THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+    END IF;
+
+-- Savepoints
+BEGIN;
+    SAVEPOINT my_savepoint;
+    
+    -- Some operations
+    UPDATE users SET status = 'active';
+    
+    -- If something goes wrong
+    ROLLBACK TO my_savepoint;
+    
+    -- Continue with different operations
+    UPDATE users SET status = 'pending';
+COMMIT;
+                        </code></pre>
+                    </div>
+
+                    <h2 id="best-practices">Best Practices</h2>
+                    <ul>
+                        <li>Always use prepared statements to prevent SQL injection</li>
+                        <li>Create appropriate indexes for frequently queried columns</li>
+                        <li>Use transactions for maintaining data integrity</li>
+                        <li>Normalize your database design appropriately</li>
+                        <li>Regularly backup your database</li>
+                        <li>Monitor and optimize query performance</li>
+                        <li>Use appropriate data types for columns</li>
+                        <li>Implement proper constraints for data integrity</li>
+                        <li>Keep transactions as short as possible</li>
+                        <li>Use meaningful table and column names</li>
+                        <li>Document your database schema and relationships</li>
+                        <li>Regularly update statistics for query optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="../static/js/learning.js"></script>
+</body>
+</html>

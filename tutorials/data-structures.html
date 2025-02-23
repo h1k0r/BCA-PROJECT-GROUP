@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures and Algorithms - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="../static/css/learning.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../learning.html">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="tutorial-nav">
+                    <div class="list-group">
+                        <a href="#intro" class="list-group-item list-group-item-action">Introduction</a>
+                        <a href="#arrays" class="list-group-item list-group-item-action">Arrays & Lists</a>
+                        <a href="#linked-lists" class="list-group-item list-group-item-action">Linked Lists</a>
+                        <a href="#stacks-queues" class="list-group-item list-group-item-action">Stacks & Queues</a>
+                        <a href="#trees" class="list-group-item list-group-item-action">Trees</a>
+                        <a href="#graphs" class="list-group-item list-group-item-action">Graphs</a>
+                        <a href="#sorting" class="list-group-item list-group-item-action">Sorting Algorithms</a>
+                        <a href="#searching" class="list-group-item list-group-item-action">Searching Algorithms</a>
+                        <a href="#dynamic" class="list-group-item list-group-item-action">Dynamic Programming</a>
+                        <a href="#complexity" class="list-group-item list-group-item-action">Time & Space Complexity</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="tutorial-content">
+                    <h1 id="intro">Data Structures and Algorithms</h1>
+                    <p>Understanding data structures and algorithms is crucial for writing efficient and optimized code.</p>
+
+                    <h2 id="arrays">Arrays & Lists</h2>
+                    <p>Arrays are fundamental data structures that store elements in contiguous memory locations:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Array Operations in Python
+# Time Complexity:
+# Access: O(1)
+# Search: O(n)
+# Insert/Delete at end: O(1)
+# Insert/Delete at beginning: O(n)
+
+# Creating arrays
+numbers = [1, 2, 3, 4, 5]
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# Array operations
+def array_operations():
+    # Accessing elements
+    first = numbers[0]       # O(1)
+    last = numbers[-1]      # O(1)
+    
+    # Inserting elements
+    numbers.append(6)       # O(1)
+    numbers.insert(0, 0)    # O(n)
+    
+    # Deleting elements
+    numbers.pop()          # O(1)
+    numbers.pop(0)         # O(n)
+    
+    # Searching
+    index = numbers.index(3)  # O(n)
+    
+    # Slicing
+    subset = numbers[1:4]   # O(k) where k is slice size
+
+# Dynamic Array Implementation
+class DynamicArray:
+    def __init__(self):
+        self.size = 0
+        self.capacity = 1
+        self.array = [None] * self.capacity
+    
+    def append(self, element):
+        if self.size == self.capacity:
+            self._resize(2 * self.capacity)
+        self.array[self.size] = element
+        self.size += 1
+    
+    def _resize(self, new_capacity):
+        new_array = [None] * new_capacity
+        for i in range(self.size):
+            new_array[i] = self.array[i]
+        self.array = new_array
+        self.capacity = new_capacity
+                        </code></pre>
+                    </div>
+
+                    <h2 id="linked-lists">Linked Lists</h2>
+                    <p>Linked Lists are sequential data structures where elements are stored in nodes:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Linked List Implementation
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
+            return
+        
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = Node(data)
+    
+    def delete(self, data):
+        if not self.head:
+            return
+        
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        
+        current = self.head
+        while current.next:
+            if current.next.data == data:
+                current.next = current.next.next
+                return
+            current = current.next
+    
+    def print_list(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+# Example usage
+linked_list = LinkedList()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
+linked_list.print_list()  # Output: 1 -> 2 -> 3 -> None
+                        </code></pre>
+                    </div>
+
+                    <h2 id="stacks-queues">Stacks & Queues</h2>
+                    <p>Stacks (LIFO) and Queues (FIFO) are fundamental data structures:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Stack Implementation
+class Stack:
+    def __init__(self):
+        self.items = []
+    
+    def push(self, item):    # O(1)
+        self.items.append(item)
+    
+    def pop(self):          # O(1)
+        if not self.is_empty():
+            return self.items.pop()
+    
+    def peek(self):         # O(1)
+        if not self.is_empty():
+            return self.items[-1]
+    
+    def is_empty(self):     # O(1)
+        return len(self.items) == 0
+
+# Queue Implementation
+from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.items = deque()
+    
+    def enqueue(self, item):  # O(1)
+        self.items.append(item)
+    
+    def dequeue(self):        # O(1)
+        if not self.is_empty():
+            return self.items.popleft()
+    
+    def front(self):          # O(1)
+        if not self.is_empty():
+            return self.items[0]
+    
+    def is_empty(self):       # O(1)
+        return len(self.items) == 0
+
+# Priority Queue Implementation
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.items = []
+    
+    def push(self, item, priority):  # O(log n)
+        heapq.heappush(self.items, (priority, item))
+    
+    def pop(self):                   # O(log n)
+        if not self.is_empty():
+            return heapq.heappop(self.items)[1]
+    
+    def is_empty(self):             # O(1)
+        return len(self.items) == 0
+                        </code></pre>
+                    </div>
+
+                    <h2 id="trees">Trees</h2>
+                    <p>Trees are hierarchical data structures with a root node and child nodes:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Binary Tree Implementation
+class TreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+    
+    def insert(self, data):
+        if not self.root:
+            self.root = TreeNode(data)
+            return
+        
+        queue = [self.root]
+        while queue:
+            node = queue.pop(0)
+            if not node.left:
+                node.left = TreeNode(data)
+                return
+            if not node.right:
+                node.right = TreeNode(data)
+                return
+            queue.append(node.left)
+            queue.append(node.right)
+    
+    # Tree Traversals
+    def inorder(self, node):
+        if node:
+            self.inorder(node.left)
+            print(node.data, end=" ")
+            self.inorder(node.right)
+    
+    def preorder(self, node):
+        if node:
+            print(node.data, end=" ")
+            self.preorder(node.left)
+            self.preorder(node.right)
+    
+    def postorder(self, node):
+        if node:
+            self.postorder(node.left)
+            self.postorder(node.right)
+            print(node.data, end=" ")
+
+# Binary Search Tree Implementation
+class BST:
+    def __init__(self):
+        self.root = None
+    
+    def insert(self, data):
+        self.root = self._insert_recursive(self.root, data)
+    
+    def _insert_recursive(self, node, data):
+        if not node:
+            return TreeNode(data)
+        
+        if data < node.data:
+            node.left = self._insert_recursive(node.left, data)
+        else:
+            node.right = self._insert_recursive(node.right, data)
+        return node
+    
+    def search(self, data):
+        return self._search_recursive(self.root, data)
+    
+    def _search_recursive(self, node, data):
+        if not node or node.data == data:
+            return node
+        
+        if data < node.data:
+            return self._search_recursive(node.left, data)
+        return self._search_recursive(node.right, data)
+                        </code></pre>
+                    </div>
+
+                    <h2 id="graphs">Graphs</h2>
+                    <p>Graphs represent relationships between objects:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Graph Implementation using Adjacency List
+class Graph:
+    def __init__(self):
+        self.graph = {}
+    
+    def add_vertex(self, vertex):
+        if vertex not in self.graph:
+            self.graph[vertex] = []
+    
+    def add_edge(self, v1, v2):
+        if v1 in self.graph and v2 in self.graph:
+            self.graph[v1].append(v2)
+            self.graph[v2].append(v1)  # For undirected graph
+    
+    # Breadth First Search
+    def bfs(self, start):
+        visited = set()
+        queue = [start]
+        visited.add(start)
+        
+        while queue:
+            vertex = queue.pop(0)
+            print(vertex, end=" ")
+            
+            for neighbor in self.graph[vertex]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+    
+    # Depth First Search
+    def dfs(self, start, visited=None):
+        if visited is None:
+            visited = set()
+        
+        visited.add(start)
+        print(start, end=" ")
+        
+        for neighbor in self.graph[start]:
+            if neighbor not in visited:
+                self.dfs(neighbor, visited)
+    
+    # Dijkstra's Shortest Path Algorithm
+    def dijkstra(self, start):
+        distances = {vertex: float('infinity') for vertex in self.graph}
+        distances[start] = 0
+        unvisited = set(self.graph.keys())
+        
+        while unvisited:
+            current = min(unvisited, key=lambda vertex: distances[vertex])
+            unvisited.remove(current)
+            
+            for neighbor in self.graph[current]:
+                distance = distances[current] + 1  # Assuming weight = 1
+                if distance < distances[neighbor]:
+                    distances[neighbor] = distance
+        
+        return distances
+                        </code></pre>
+                    </div>
+
+                    <h2 id="sorting">Sorting Algorithms</h2>
+                    <p>Common sorting algorithms and their implementations:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Bubble Sort: O(n^2)
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+# Quick Sort: O(n log n) average
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return quick_sort(left) + middle + quick_sort(right)
+
+# Merge Sort: O(n log n)
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    
+    return merge(left, right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+    
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+# Heap Sort: O(n log n)
+def heapify(arr, n, i):
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+    
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+    
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+def heap_sort(arr):
+    n = len(arr)
+    
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr, n, i)
+    
+    for i in range(n-1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        heapify(arr, i, 0)
+    
+    return arr
+                        </code></pre>
+                    </div>
+
+                    <h2 id="searching">Searching Algorithms</h2>
+                    <p>Efficient algorithms for finding elements:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Linear Search: O(n)
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+# Binary Search: O(log n)
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1
+
+# Binary Search Tree Search: O(log n) average
+def bst_search(root, target):
+    if not root or root.data == target:
+        return root
+    
+    if target < root.data:
+        return bst_search(root.left, target)
+    return bst_search(root.right, target)
+
+# Interpolation Search: O(log log n) average
+def interpolation_search(arr, target):
+    left, right = 0, len(arr) - 1
+    
+    while left <= right and target >= arr[left] and target <= arr[right]:
+        if left == right:
+            if arr[left] == target:
+                return left
+            return -1
+        
+        pos = left + ((right - left) * (target - arr[left]) // 
+                     (arr[right] - arr[left]))
+        
+        if arr[pos] == target:
+            return pos
+        
+        if arr[pos] < target:
+            left = pos + 1
+        else:
+            right = pos - 1
+    
+    return -1
+                        </code></pre>
+                    </div>
+
+                    <h2 id="dynamic">Dynamic Programming</h2>
+                    <p>Solving complex problems by breaking them into simpler subproblems:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Fibonacci using Dynamic Programming
+def fibonacci_dp(n):
+    if n <= 1:
+        return n
+    
+    dp = [0] * (n + 1)
+    dp[1] = 1
+    
+    for i in range(2, n + 1):
+        dp[i] = dp[i-1] + dp[i-2]
+    
+    return dp[n]
+
+# Longest Common Subsequence
+def lcs(str1, str2):
+    m, n = len(str1), len(str2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if str1[i-1] == str2[j-1]:
+                dp[i][j] = dp[i-1][j-1] + 1
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    
+    return dp[m][n]
+
+# Knapsack Problem
+def knapsack(values, weights, capacity):
+    n = len(values)
+    dp = [[0] * (capacity + 1) for _ in range(n + 1)]
+    
+    for i in range(1, n + 1):
+        for w in range(capacity + 1):
+            if weights[i-1] <= w:
+                dp[i][w] = max(values[i-1] + dp[i-1][w-weights[i-1]], 
+                              dp[i-1][w])
+            else:
+                dp[i][w] = dp[i-1][w]
+    
+    return dp[n][capacity]
+
+# Matrix Chain Multiplication
+def matrix_chain_multiplication(dimensions):
+    n = len(dimensions) - 1
+    dp = [[0] * n for _ in range(n)]
+    
+    for length in range(2, n + 1):
+        for i in range(n - length + 1):
+            j = i + length - 1
+            dp[i][j] = float('inf')
+            
+            for k in range(i, j):
+                cost = (dp[i][k] + dp[k+1][j] + 
+                       dimensions[i] * dimensions[k+1] * dimensions[j+1])
+                dp[i][j] = min(dp[i][j], cost)
+    
+    return dp[0][n-1]
+                        </code></pre>
+                    </div>
+
+                    <h2 id="complexity">Time & Space Complexity</h2>
+                    <p>Understanding algorithmic complexity and efficiency:</p>
+                    <ul>
+                        <li>O(1) - Constant time</li>
+                        <li>O(log n) - Logarithmic time</li>
+                        <li>O(n) - Linear time</li>
+                        <li>O(n log n) - Linearithmic time</li>
+                        <li>O(n²) - Quadratic time</li>
+                        <li>O(2ⁿ) - Exponential time</li>
+                        <li>O(n!) - Factorial time</li>
+                    </ul>
+                    <p>Space complexity considerations:</p>
+                    <ul>
+                        <li>In-place algorithms (O(1) extra space)</li>
+                        <li>Recursive stack space</li>
+                        <li>Auxiliary space requirements</li>
+                        <li>Trade-offs between time and space</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="../static/js/learning.js"></script>
+</body>
+</html>

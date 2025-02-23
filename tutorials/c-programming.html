@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming: Complete Guide - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="../static/css/learning.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../learning.html">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="tutorial-nav">
+                    <div class="list-group">
+                        <a href="#intro" class="list-group-item list-group-item-action">Introduction to C</a>
+                        <a href="#basics" class="list-group-item list-group-item-action">C Basics</a>
+                        <a href="#control-flow" class="list-group-item list-group-item-action">Control Flow</a>
+                        <a href="#functions" class="list-group-item list-group-item-action">Functions</a>
+                        <a href="#arrays" class="list-group-item list-group-item-action">Arrays & Strings</a>
+                        <a href="#pointers" class="list-group-item list-group-item-action">Pointers</a>
+                        <a href="#memory" class="list-group-item list-group-item-action">Memory Management</a>
+                        <a href="#structures" class="list-group-item list-group-item-action">Structures & Unions</a>
+                        <a href="#file-io" class="list-group-item list-group-item-action">File I/O</a>
+                        <a href="#preprocessor" class="list-group-item list-group-item-action">Preprocessor</a>
+                        <a href="#best-practices" class="list-group-item list-group-item-action">Best Practices</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="tutorial-content">
+                    <h1 id="intro">C Programming: From Basics to Advanced</h1>
+                    <p>C is a powerful general-purpose programming language. It can be used to develop software like operating systems, databases, compilers, and so on. C programming gives a clear understanding of how programs work at a low level.</p>
+
+                    <h2 id="basics">C Basics</h2>
+                    <p>Let's start with the fundamental concepts of C programming:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Basic Structure of a C Program
+#include <stdio.h>
+
+int main() {
+    // Your code here
+    printf("Hello, World!\n");
+    return 0;
+}
+
+// Variables and Data Types
+int age = 25;          // Integer
+float height = 1.75;   // Floating point
+char grade = 'A';      // Character
+double pi = 3.14159;   // Double precision float
+
+// Constants
+#define MAX_SIZE 100   // Macro constant
+const int MIN_VALUE = 0;  // Constant variable
+
+// Input and Output
+int number;
+printf("Enter a number: ");
+scanf("%d", &number);
+printf("You entered: %d\n", number);
+
+// Basic Operators
+int a = 10, b = 5;
+int sum = a + b;       // Addition
+int diff = a - b;      // Subtraction
+int prod = a * b;      // Multiplication
+int quot = a / b;      // Division
+int rem = a % b;       // Modulus
+
+// Type Casting
+float f = 3.14;
+int i = (int)f;        // Explicit casting
+                        </code></pre>
+                    </div>
+
+                    <h2 id="control-flow">Control Flow</h2>
+                    <p>Control flow structures in C:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// If-Else Statement
+if (age >= 18) {
+    printf("Adult\n");
+} else if (age >= 13) {
+    printf("Teenager\n");
+} else {
+    printf("Child\n");
+}
+
+// Switch Statement
+switch (grade) {
+    case 'A':
+        printf("Excellent\n");
+        break;
+    case 'B':
+        printf("Good\n");
+        break;
+    default:
+        printf("Keep trying\n");
+}
+
+// Loops
+// For Loop
+for (int i = 0; i < 5; i++) {
+    printf("%d ", i);
+}
+
+// While Loop
+int count = 0;
+while (count < 5) {
+    printf("%d ", count);
+    count++;
+}
+
+// Do-While Loop
+do {
+    printf("Execute at least once\n");
+} while (0);
+
+// Break and Continue
+for (int i = 0; i < 10; i++) {
+    if (i == 5) continue;  // Skip 5
+    if (i == 8) break;     // Stop at 8
+    printf("%d ", i);
+}
+                        </code></pre>
+                    </div>
+
+                    <h2 id="functions">Functions</h2>
+                    <p>Functions in C:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Function Declaration
+int add(int a, int b);
+
+// Function Definition
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function with Pointers
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Recursive Function
+int factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+// Function Pointers
+int (*operation)(int, int);
+operation = add;
+int result = operation(5, 3);
+                        </code></pre>
+                    </div>
+
+                    <h2 id="arrays">Arrays & Strings</h2>
+                    <p>Working with arrays and strings in C:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Arrays
+int numbers[5] = {1, 2, 3, 4, 5};
+int matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// Array Operations
+for (int i = 0; i < 5; i++) {
+    numbers[i] *= 2;  // Double each element
+}
+
+// Strings
+char str[] = "Hello";
+char name[50];
+strcpy(name, "John");  // String copy
+strcat(name, " Doe");  // String concatenation
+int len = strlen(name);  // String length
+
+// String Functions
+if (strcmp(str1, str2) == 0) {  // String comparison
+    printf("Strings are equal\n");
+}
+                        </code></pre>
+                    </div>
+
+                    <h2 id="pointers">Pointers</h2>
+                    <p>Understanding pointers in C:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Basic Pointer Usage
+int x = 10;
+int *ptr = &x;  // ptr holds address of x
+printf("Value: %d\n", *ptr);  // Dereferencing
+
+// Pointer Arithmetic
+int arr[] = {1, 2, 3, 4, 5};
+int *p = arr;
+printf("%d\n", *p);     // First element
+printf("%d\n", *(p+1)); // Second element
+
+// Double Pointers
+int **dptr;
+int *ptr;
+int val = 10;
+ptr = &val;
+dptr = &ptr;
+
+// Function Pointers
+void (*func_ptr)(int);
+func_ptr = &print_number;
+func_ptr(42);  // Calls print_number(42)
+                        </code></pre>
+                    </div>
+
+                    <h2 id="memory">Memory Management</h2>
+                    <p>Dynamic memory allocation in C:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// malloc() - Memory Allocation
+int *arr = (int*)malloc(5 * sizeof(int));
+if (arr == NULL) {
+    printf("Memory allocation failed\n");
+    return 1;
+}
+
+// Using allocated memory
+for (int i = 0; i < 5; i++) {
+    arr[i] = i + 1;
+}
+
+// calloc() - Cleared Memory Allocation
+int *arr2 = (int*)calloc(5, sizeof(int));
+
+// realloc() - Reallocate Memory
+arr = (int*)realloc(arr, 10 * sizeof(int));
+
+// free() - Free Memory
+free(arr);
+free(arr2);
+
+// Common Memory Errors
+int *ptr = NULL;  // Always initialize pointers
+*ptr = 42;        // Dereferencing NULL pointer (error)
+
+// Memory Leak
+void memory_leak() {
+    int *ptr = malloc(sizeof(int));
+    // Missing free(ptr); - Memory leak
+}
+                        </code></pre>
+                    </div>
+
+                    <h2 id="structures">Structures & Unions</h2>
+                    <p>Working with structures and unions:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Structure Definition
+struct Person {
+    char name[50];
+    int age;
+    float height;
+};
+
+// Structure Usage
+struct Person person1 = {"John", 25, 1.75};
+printf("%s is %d years old\n", person1.name, person1.age);
+
+// Structure Pointer
+struct Person *ptr = &person1;
+printf("%s\n", ptr->name);  // Arrow operator
+
+// Nested Structures
+struct Address {
+    char street[50];
+    char city[30];
+};
+
+struct Employee {
+    struct Person person;
+    struct Address addr;
+    int id;
+};
+
+// Union
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+// Union Usage
+union Data data;
+data.i = 10;    // Now only i contains valid data
+data.f = 3.14;  // Now only f contains valid data
+                        </code></pre>
+                    </div>
+
+                    <h2 id="file-io">File I/O</h2>
+                    <p>File handling in C:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Opening a File
+FILE *file = fopen("example.txt", "r");
+if (file == NULL) {
+    printf("Error opening file\n");
+    return 1;
+}
+
+// Reading from File
+char buffer[100];
+while (fgets(buffer, sizeof(buffer), file) != NULL) {
+    printf("%s", buffer);
+}
+
+// Writing to File
+FILE *outfile = fopen("output.txt", "w");
+fprintf(outfile, "Hello, File!\n");
+fputs("Another line\n", outfile);
+
+// Binary File I/O
+struct Record {
+    int id;
+    char name[50];
+};
+
+// Writing Binary
+fwrite(&record, sizeof(struct Record), 1, file);
+
+// Reading Binary
+fread(&record, sizeof(struct Record), 1, file);
+
+// Closing Files
+fclose(file);
+fclose(outfile);
+                        </code></pre>
+                    </div>
+
+                    <h2 id="preprocessor">Preprocessor</h2>
+                    <p>C preprocessor directives and macros:</p>
+                    <div class="code-example">
+                        <pre><code class="language-c">
+// Include Guards
+#ifndef HEADER_H
+#define HEADER_H
+// Header content
+#endif
+
+// Macro Definitions
+#define PI 3.14159
+#define SQUARE(x) ((x) * (x))
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+
+// Conditional Compilation
+#ifdef DEBUG
+    printf("Debug mode\n");
+#endif
+
+#if defined(_WIN32)
+    // Windows-specific code
+#elif defined(__linux__)
+    // Linux-specific code
+#endif
+
+// Macro with Multiple Lines
+#define DEBUG_PRINT(x) do { \
+    printf("%s = %d\n", #x, x); \
+} while (0)
+
+// Stringification
+#define STRINGIFY(x) #x
+printf(STRINGIFY(Hello));  // Prints "Hello"
+
+// Token Concatenation
+#define CONCAT(a, b) a##b
+int xy = 42;
+printf("%d\n", CONCAT(x, y));  // Prints 42
+                        </code></pre>
+                    </div>
+
+                    <h2 id="best-practices">Best Practices</h2>
+                    <ul>
+                        <li>Always initialize variables before use</li>
+                        <li>Check return values of functions</li>
+                        <li>Free dynamically allocated memory</li>
+                        <li>Use const when appropriate</li>
+                        <li>Avoid global variables</li>
+                        <li>Comment your code appropriately</li>
+                        <li>Use meaningful variable names</li>
+                        <li>Handle errors gracefully</li>
+                        <li>Follow consistent coding style</li>
+                        <li>Use header guards</li>
+                        <li>Avoid magic numbers</li>
+                        <li>Write modular code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="../static/js/learning.js"></script>
+</body>
+</html>

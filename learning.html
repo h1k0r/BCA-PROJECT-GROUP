@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Portal - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="static/css/learning.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="learning.html">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-5">Complete Programming Learning Portal</h1>
+
+        <!-- Learning Path Selector -->
+        <div class="mb-5">
+            <h3>Choose Your Learning Path</h3>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary active" data-path="beginner">Beginner</button>
+                <button type="button" class="btn btn-outline-primary" data-path="intermediate">Intermediate</button>
+                <button type="button" class="btn btn-outline-primary" data-path="advanced">Advanced</button>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Web Development Fundamentals -->
+            <h2 class="mb-4">Web Development Fundamentals</h2>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">HTML5 & Semantic Web</h5>
+                        <p class="card-text">Master modern HTML5 and semantic markup</p>
+                        <a href="tutorials/html-advanced.html" class="btn btn-outline-primary">Start Learning HTML5</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">CSS3 & Modern Layout</h5>
+                        <p class="card-text">Advanced CSS3, Flexbox, Grid, and Animations</p>
+                        <a href="tutorials/css-advanced.html" class="btn btn-outline-primary">Start Learning CSS3</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern JavaScript</h5>
+                        <p class="card-text">ES6+, Async Programming, and Web APIs</p>
+                        <a href="tutorials/javascript-advanced.html" class="btn btn-outline-primary">Start Learning JavaScript</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programming Languages -->
+            <h2 class="mb-4 mt-5">Programming Languages</h2>
+
+            <!-- System Programming -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">C Programming</h5>
+                        <p class="card-text">Low-level programming and system concepts</p>
+                        <a href="tutorials/c-programming.html" class="btn btn-outline-primary">Learn C</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">C++</h5>
+                        <p class="card-text">Object-oriented and systems programming</p>
+                        <a href="tutorials/cpp-programming.html" class="btn btn-outline-primary">Learn C++</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Rust</h5>
+                        <p class="card-text">Modern systems programming with safety</p>
+                        <a href="tutorials/rust-programming.html" class="btn btn-outline-primary">Learn Rust</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General Purpose Languages -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Python</h5>
+                        <p class="card-text">From basics to advanced Python programming</p>
+                        <a href="tutorials/python-advanced.html" class="btn btn-outline-primary">Learn Python</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Java</h5>
+                        <p class="card-text">Enterprise-grade Java development</p>
+                        <a href="tutorials/java-programming.html" class="btn btn-outline-primary">Learn Java</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Go</h5>
+                        <p class="card-text">Modern concurrent programming with Go</p>
+                        <a href="tutorials/go-programming.html" class="btn btn-outline-primary">Learn Go</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scripting Languages -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Ruby</h5>
+                        <p class="card-text">Elegant object-oriented programming</p>
+                        <a href="tutorials/ruby-programming.html" class="btn btn-outline-primary">Learn Ruby</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">PHP</h5>
+                        <p class="card-text">Modern PHP and web development</p>
+                        <a href="tutorials/php-programming.html" class="btn btn-outline-primary">Learn PHP</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Perl</h5>
+                        <p class="card-text">Text processing and system administration</p>
+                        <a href="tutorials/perl-programming.html" class="btn btn-outline-primary">Learn Perl</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Development -->
+            <h2 class="mb-4 mt-5">Mobile Development</h2>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Swift</h5>
+                        <p class="card-text">iOS app development with Swift</p>
+                        <a href="tutorials/swift-programming.html" class="btn btn-outline-primary">Learn Swift</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Kotlin</h5>
+                        <p class="card-text">Modern Android development</p>
+                        <a href="tutorials/kotlin-programming.html" class="btn btn-outline-primary">Learn Kotlin</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Dart & Flutter</h5>
+                        <p class="card-text">Cross-platform mobile development</p>
+                        <a href="tutorials/flutter-programming.html" class="btn btn-outline-primary">Learn Flutter</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Languages -->
+            <h2 class="mb-4 mt-5">Specialized Programming</h2>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">R Programming</h5>
+                        <p class="card-text">Statistical computing and data analysis</p>
+                        <a href="tutorials/r-programming.html" class="btn btn-outline-primary">Learn R</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">MATLAB</h5>
+                        <p class="card-text">Scientific computing and engineering</p>
+                        <a href="tutorials/matlab-programming.html" class="btn btn-outline-primary">Learn MATLAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Julia</h5>
+                        <p class="card-text">High-performance numerical analysis</p>
+                        <a href="tutorials/julia-programming.html" class="btn btn-outline-primary">Learn Julia</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Science Topics -->
+            <h2 class="mb-4 mt-5">Computer Science Fundamentals</h2>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Structures</h5>
+                        <p class="card-text">Advanced data structures and algorithms</p>
+                        <a href="tutorials/data-structures.html" class="btn btn-outline-primary">Learn DSA</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Design Patterns</h5>
+                        <p class="card-text">Software design patterns and principles</p>
+                        <a href="tutorials/design-patterns.html" class="btn btn-outline-primary">Learn Patterns</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">System Architecture</h5>
+                        <p class="card-text">Large-scale system design principles</p>
+                        <a href="tutorials/system-architecture.html" class="btn btn-outline-primary">Learn Architecture</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="static/js/learning.js"></script>
+</body>
+</html>

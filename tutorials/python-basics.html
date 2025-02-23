@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming Tutorial - CodeMart</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="../static/css/learning.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-code"></i> CodeMart
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../learning.html">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="tutorial-nav">
+                    <div class="list-group">
+                        <a href="#intro" class="list-group-item list-group-item-action">Introduction</a>
+                        <a href="#basics" class="list-group-item list-group-item-action">Language Basics</a>
+                        <a href="#data-types" class="list-group-item list-group-item-action">Data Types & Structures</a>
+                        <a href="#control-flow" class="list-group-item list-group-item-action">Control Flow</a>
+                        <a href="#functions" class="list-group-item list-group-item-action">Functions & Lambda</a>
+                        <a href="#oop" class="list-group-item list-group-item-action">Object-Oriented Programming</a>
+                        <a href="#modules" class="list-group-item list-group-item-action">Modules & Packages</a>
+                        <a href="#file-handling" class="list-group-item list-group-item-action">File Handling</a>
+                        <a href="#exceptions" class="list-group-item list-group-item-action">Exception Handling</a>
+                        <a href="#advanced" class="list-group-item list-group-item-action">Advanced Topics</a>
+                        <a href="#best-practices" class="list-group-item list-group-item-action">Best Practices</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="tutorial-content">
+                    <h1 id="intro">Python Programming</h1>
+                    <p>Python is a versatile, high-level programming language known for its simplicity and readability.</p>
+
+                    <h2 id="basics">Language Basics</h2>
+                    <p>Core concepts and syntax of Python:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Variables and Basic Data Types
+name = "John"              # String
+age = 25                  # Integer
+height = 1.75             # Float
+is_student = True         # Boolean
+
+# String Formatting
+# f-strings (Python 3.6+)
+message = f"Hello, {name}! You are {age} years old."
+
+# .format() method
+greeting = "Hello, {}! You are {} years old.".format(name, age)
+
+# String Operations
+full_name = "John Doe"
+print(full_name.upper())      # JOHN DOE
+print(full_name.split())      # ['John', 'Doe']
+print(len(full_name))         # 8
+
+# Basic Operators
+x = 10
+y = 3
+print(x + y)    # Addition: 13
+print(x - y)    # Subtraction: 7
+print(x * y)    # Multiplication: 30
+print(x / y)    # Division: 3.3333...
+print(x // y)   # Floor Division: 3
+print(x % y)    # Modulus: 1
+print(x ** y)   # Exponentiation: 1000
+
+# Type Conversion
+str_num = "123"
+num = int(str_num)    # String to Integer
+float_num = float(num)  # Integer to Float
+str_back = str(num)   # Number to String
+                        </code></pre>
+                    </div>
+
+                    <h2 id="data-types">Data Types & Structures</h2>
+                    <p>Python's built-in data structures and their operations:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Lists
+fruits = ["apple", "banana", "orange"]
+fruits.append("grape")           # Add to end
+fruits.insert(0, "lemon")       # Add at index
+fruits.remove("banana")         # Remove item
+popped = fruits.pop()           # Remove and return last item
+fruits.sort()                   # Sort in place
+sorted_fruits = sorted(fruits)  # Return new sorted list
+
+# List Comprehension
+squares = [x**2 for x in range(10)]
+evens = [x for x in range(10) if x % 2 == 0]
+
+# Tuples (Immutable)
+coordinates = (3, 4)
+x, y = coordinates    # Tuple unpacking
+
+# Dictionaries
+person = {
+    "name": "John",
+    "age": 25,
+    "skills": ["Python", "JavaScript"]
+}
+# Dictionary Methods
+person["city"] = "New York"     # Add/Update item
+del person["age"]              # Remove item
+keys = person.keys()           # Get all keys
+values = person.values()       # Get all values
+
+# Dictionary Comprehension
+square_dict = {x: x**2 for x in range(5)}
+
+# Sets
+unique_numbers = {1, 2, 3, 3, 4}  # Duplicates removed
+unique_numbers.add(5)           # Add item
+unique_numbers.remove(2)        # Remove item
+
+# Set Operations
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+print(set1 & set2)    # Intersection
+print(set1 | set2)    # Union
+print(set1 - set2)    # Difference
+                        </code></pre>
+                    </div>
+
+                    <h2 id="control-flow">Control Flow</h2>
+                    <p>Control structures and loops in Python:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# If-Elif-Else Statement
+age = 18
+if age < 13:
+    print("Child")
+elif age < 20:
+    print("Teenager")
+else:
+    print("Adult")
+
+# For Loops
+# Range-based loop
+for i in range(5):
+    print(i)
+
+# Iterating over sequence
+for fruit in fruits:
+    print(fruit)
+
+# Enumerate for index and value
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# While Loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# Loop Control
+for i in range(10):
+    if i == 3:
+        continue    # Skip rest of iteration
+    if i == 8:
+        break       # Exit loop
+    print(i)
+
+# Match Statement (Python 3.10+)
+status = 404
+match status:
+    case 200:
+        print("OK")
+    case 404:
+        print("Not Found")
+    case _:
+        print("Unknown")
+                        </code></pre>
+                    </div>
+
+                    <h2 id="functions">Functions & Lambda</h2>
+                    <p>Different ways to define and use functions:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Basic Function
+def greet(name):
+    return f"Hello, {name}!"
+
+# Default Parameters
+def create_user(name, role="user"):
+    return {"name": name, "role": role}
+
+# Variable Arguments
+def sum_all(*args):
+    return sum(args)
+
+# Keyword Arguments
+def build_profile(**kwargs):
+    return kwargs
+
+# Lambda Functions
+square = lambda x: x**2
+double = lambda x: x * 2
+
+# Function Annotations (Type Hints)
+def calculate_area(length: float, width: float) -> float:
+    return length * width
+
+# Decorators
+def timer(func):
+    def wrapper(*args, **kwargs):
+        import time
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"Time taken: {end - start:.2f} seconds")
+        return result
+    return wrapper
+
+@timer
+def slow_function():
+    import time
+    time.sleep(1)
+    return "Done"
+                        </code></pre>
+                    </div>
+
+                    <h2 id="oop">Object-Oriented Programming</h2>
+                    <p>Classes, inheritance, and object-oriented concepts:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Basic Class
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        return f"Hello, I'm {self.name}"
+
+# Inheritance
+class Employee(Person):
+    def __init__(self, name, age, role):
+        super().__init__(name, age)
+        self.role = role
+    
+    def get_info(self):
+        return f"{self.name} ({self.role})"
+
+# Properties
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def area(self):
+        import math
+        return math.pi * self._radius ** 2
+    
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        if value > 0:
+            self._radius = value
+
+# Class Methods & Static Methods
+class Date:
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+    
+    @classmethod
+    def from_string(cls, date_string):
+        year, month, day = map(int, date_string.split('-'))
+        return cls(year, month, day)
+    
+    @staticmethod
+    def is_valid_date(date_string):
+        try:
+            year, month, day = map(int, date_string.split('-'))
+            return 1 <= month <= 12 and 1 <= day <= 31
+        except:
+            return False
+
+# Magic Methods
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+                        </code></pre>
+                    </div>
+
+                    <h2 id="modules">Modules & Packages</h2>
+                    <p>Working with modules and creating packages:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Module Structure (math_utils.py)
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+PI = 3.14159
+
+# Importing Modules
+import math_utils
+result = math_utils.add(5, 3)
+
+from math_utils import add, multiply
+result = add(5, 3)
+
+import math_utils as mu
+result = mu.add(5, 3)
+
+# Package Structure
+mypackage/
+    __init__.py
+    module1.py
+    module2.py
+    subpackage/
+        __init__.py
+        module3.py
+
+# __init__.py Example
+from .module1 import function1
+from .module2 import function2
+
+__all__ = ['function1', 'function2']
+
+# Using Packages
+from mypackage import function1
+from mypackage.subpackage import module3
+                        </code></pre>
+                    </div>
+
+                    <h2 id="file-handling">File Handling</h2>
+                    <p>Working with files and directories:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Reading Files
+# Basic Reading
+with open('file.txt', 'r') as file:
+    content = file.read()
+
+# Reading Lines
+with open('file.txt', 'r') as file:
+    lines = file.readlines()
+
+# Writing Files
+# Basic Writing
+with open('output.txt', 'w') as file:
+    file.write('Hello, World!')
+
+# Writing Multiple Lines
+lines = ['Line 1\n', 'Line 2\n', 'Line 3\n']
+with open('output.txt', 'w') as file:
+    file.writelines(lines)
+
+# Appending to Files
+with open('log.txt', 'a') as file:
+    file.write('New log entry\n')
+
+# Working with CSV Files
+import csv
+
+# Reading CSV
+with open('data.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+# Writing CSV
+data = [['Name', 'Age'], ['John', 25], ['Alice', 30]]
+with open('output.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+# Working with JSON
+import json
+
+# Reading JSON
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# Writing JSON
+data = {'name': 'John', 'age': 25}
+with open('output.json', 'w') as file:
+    json.dump(data, file, indent=4)
+
+# File and Directory Operations
+import os
+
+# Check if file exists
+os.path.exists('file.txt')
+
+# Create directory
+os.makedirs('new_directory')
+
+# List directory contents
+os.listdir('.')
+
+# Join paths
+os.path.join('directory', 'file.txt')
+                        </code></pre>
+                    </div>
+
+                    <h2 id="exceptions">Exception Handling</h2>
+                    <p>Handling errors and exceptions:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Basic Try-Except
+try:
+    num = int("abc")
+except ValueError as e:
+    print(f"Error: {e}")
+
+# Multiple Except Blocks
+try:
+    file = open("nonexistent.txt")
+    num = int("abc")
+except FileNotFoundError as e:
+    print(f"File error: {e}")
+except ValueError as e:
+    print(f"Value error: {e}")
+except Exception as e:
+    print(f"Other error: {e}")
+
+# Try-Except-Else-Finally
+try:
+    num = int("123")
+except ValueError as e:
+    print(f"Error: {e}")
+else:
+    print("Conversion successful")
+finally:
+    print("Cleanup code")
+
+# Custom Exceptions
+class ValidationError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+def validate_age(age):
+    if age < 0:
+        raise ValidationError("Age cannot be negative")
+    return age
+
+# Context Managers
+class FileManager:
+    def __init__(self, filename):
+        self.filename = filename
+        self.file = None
+    
+    def __enter__(self):
+        self.file = open(self.filename, 'r')
+        return self.file
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file:
+            self.file.close()
+
+# Using Context Manager
+with FileManager('file.txt') as file:
+    content = file.read()
+                        </code></pre>
+                    </div>
+
+                    <h2 id="advanced">Advanced Topics</h2>
+                    <p>Advanced Python concepts and features:</p>
+                    <div class="code-example">
+                        <pre><code class="language-python">
+# Generators
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+# Generator Expression
+squares = (x**2 for x in range(10))
+
+# Iterators
+class Counter:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.start >= self.end:
+            raise StopIteration
+        current = self.start
+        self.start += 1
+        return current
+
+# Decorators with Arguments
+def repeat(times):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(times):
+                result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator
+
+@repeat(3)
+def greet(name):
+    print(f"Hello {name}")
+
+# Metaclasses
+class SingletonMeta(type):
+    _instances = {}
+    
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super().__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+class Singleton(metaclass=SingletonMeta):
+    pass
+
+# Async/Await
+import asyncio
+
+async def fetch_data():
+    print("Start fetching")
+    await asyncio.sleep(2)
+    print("Done fetching")
+    return {"data": "here"}
+
+async def main():
+    tasks = [fetch_data() for _ in range(3)]
+    results = await asyncio.gather(*tasks)
+    return results
+
+# Type Hints
+from typing import List, Dict, Optional, Union
+
+def process_items(items: List[str]) -> Dict[str, int]:
+    return {item: len(item) for item in items}
+
+def get_user(user_id: int) -> Optional[Dict[str, Union[str, int]]]:
+    if user_id > 0:
+        return {"id": user_id, "name": "John"}
+    return None
+                        </code></pre>
+                    </div>
+
+                    <h2 id="best-practices">Best Practices</h2>
+                    <ul>
+                        <li>Follow PEP 8 style guide for code formatting</li>
+                        <li>Use meaningful variable and function names</li>
+                        <li>Write docstrings for functions and classes</li>
+                        <li>Use type hints for better code readability</li>
+                        <li>Handle exceptions appropriately</li>
+                        <li>Write unit tests for your code</li>
+                        <li>Use virtual environments for project dependencies</li>
+                        <li>Keep functions small and focused</li>
+                        <li>Use list comprehensions when appropriate</li>
+                        <li>Avoid global variables</li>
+                        <li>Use context managers for resource management</li>
+                        <li>Follow the DRY (Don't Repeat Yourself) principle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 CodeMart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="https://chat.whatsapp.com/DYWmygidJUSDNUERqjZoG8" class="text-decoration-none me-3" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none me-3">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.24.1/prism.min.js"></script>
+    <script src="../static/js/learning.js"></script>
+</body>
+</html>

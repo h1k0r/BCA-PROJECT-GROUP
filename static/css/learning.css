@@ -1,0 +1,46 @@
+/* Learning Portal Styles */
+.tutorial-nav {
+    position: sticky;
+    top: 20px;
+}
+
+.tutorial-content {
+    line-height: 1.6;
+}
+
+.code-example {
+    margin: 20px 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.code-example pre {
+    margin: 0;
+    padding: 15px;
+}
+
+.code-example code {
+    font-size: 14px;
+}
+
+/* Dark theme enhancements */
+.tutorial-content h1, 
+.tutorial-content h2 {
+    color: var(--bs-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-content ul {
+    margin-bottom: 1.5rem;
+}
+
+.tutorial-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Code block styling */
+pre[class*="language-"] {
+    background: var(--bs-dark) !important;
+    border: 1px solid var(--bs-gray-700);
+}
